@@ -1,0 +1,18 @@
+<svg width="150" height="40" preserveAspectRatio="xMidYMid meet" viewBox="100 70 250 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Smaller Circle -->
+  <circle cx="70" cy="125" r="35" fill="#00BFA6" />
+
+  <!-- Music Note Icon Centered in Circle -->
+  <text x="70" y="125" font-family="Arial" font-size="60" fill="white" text-anchor="middle" alignment-baseline="middle">🎶</text>
+
+  <!-- "MuzeBox" Text with Alternating Colors -->
+  <text font-family="Arial" font-size="40" font-weight="bold" y="135">
+    <tspan x="115" fill="red">M</tspan>
+    <tspan fill="green">u</tspan>
+    <tspan fill="gold">z</tspan>
+    <tspan fill="white">e</tspan>
+    <tspan fill="red">B</tspan>
+    <tspan fill="green">o</tspan>
+    <tspan fill="white">x</tspan>
+  </text>
+</svg>

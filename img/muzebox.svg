@@ -1,0 +1,7 @@
+<svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circular Shape -->
+  <circle cx="125" cy="125" r="85" fill="#00BFA6"/>
+
+  <!-- Music Note Icon, Adjusted to be Centered -->
+  <text x="125" y="135" font-family="Arial" font-size="160" fill="white" text-anchor="middle" alignment-baseline="middle">🎶</text>
+</svg>
