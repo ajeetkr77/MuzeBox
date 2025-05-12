@@ -78,7 +78,7 @@ function formatTime(input) {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`/songs/`)
+    let a = await fetch(`/songs/albums.json`)
     let response = await a.text()
     console.log(response)
     //console.log(response)
