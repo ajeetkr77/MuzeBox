@@ -8,7 +8,7 @@ async function getSongs(folder) {
     currFolder = folder
     let a = await fetch(`https://api.github.com/repos/ajeetkr77/MuzeBox/contents/${folder}`)
     let response = await a.json()
-    console.log(response)
+    //console.log(response)
 
     songs = []
 
@@ -67,7 +67,7 @@ function formatTime(input) {
 async function displayAlbums() {
     let a = await fetch(`https://api.github.com/repos/ajeetkr77/MuzeBox/contents/songs/`)
     let response = await a.json()
-    console.log(response)
+    //console.log(response)
 
     let cardContainer = document.querySelector(".cardContainer")
     for (let index = 0; index < response.length; index++) {
