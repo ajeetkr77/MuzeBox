@@ -1,23 +1,15 @@
-let currentSong = new Audio();
-let songs;
-let currFolder;
-
 async function getSongs(folder) {
     currFolder = folder
-    let a = await fetch(`https://raw.githubusercontent.com/ajeetkr77/MuzeBox/main/${folder}/`)
-    let response = await a.text()
+    let a = await fetch(`https://api.github.com/repos/ajeetkr77/MuzeBox/contents/${folder}`)
+    let response = await a.json()
     console.log(response)
-
-    let div = document.createElement("div");
-    div.innerHTML = response
-    let as = div.getElementsByTagName("a")
 
     songs = []
 
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/${folder}/`)[1])
+    for (let index = 0; index < response.length; index++) {
+        const element = response[index];
+        if (element.name.endsWith(".mp3")) {
+            songs.push(element.download_url.split(`/${folder}/`)[1])
         }
     }
 
@@ -67,19 +59,15 @@ function formatTime(input) {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`https://raw.githubusercontent.com/ajeetkr77/MuzeBox/main/songs/`)
-    let response = await a.text()
+    let a = await fetch(`https://api.github.com/repos/ajeetkr77/MuzeBox/contents/songs/`)
+    let response = await a.json()
     console.log(response)
 
-    let div = document.createElement("div");
-    div.innerHTML = response
-    let anchors = div.getElementsByTagName("a")
     let cardContainer = document.querySelector(".cardContainer")
-    let array = Array.from(anchors)
-    for (let index = 0; index < array.length; index++) {
-        const e = array[index]
-        if (e.href.includes("/songs")) {
-            let folder = e.href.split("/").slice(-2)[0]
+    for (let index = 0; index < response.length; index++) {
+        const e = response[index]
+        if (e.type === "dir") {
+            let folder = e.name
             let a = await fetch(`https://raw.githubusercontent.com/ajeetkr77/MuzeBox/main/songs/${folder}/info.json`)
             let response = await a.json()
             cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
