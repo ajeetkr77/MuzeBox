@@ -7,9 +7,9 @@ let currFolder;
 
 async function getSongs(folder) {
     currFolder = folder
-    let a = await fetch(`/${folder}/`)
+    let a = await fetch(`https://github.com/ajeetkr77/MuzeBox/tree/main/${folder}/`)
     let response = await a.text()
-    //console.log(response)
+    console.log(response)
 
     let div = document.createElement("div");
     div.innerHTML = response
