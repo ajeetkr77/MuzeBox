@@ -191,7 +191,7 @@ body{
   .songLists .libPlayList{
     display: flex;
     gap: 10px;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px;
   }
 
