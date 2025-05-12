@@ -7,7 +7,7 @@ let currFolder;
 
 async function getSongs(folder) {
     currFolder = folder
-    let a = await fetch(`/${folder}/`)
+    let a = await fetch(`${folder}/`)
     let response = await a.text()
     console.log(response)
 
@@ -78,7 +78,7 @@ function formatTime(input) {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`/songs/`)
+    let a = await fetch(`songs/`)
     let response = await a.text()
     console.log(response)
     //console.log(response)
@@ -93,7 +93,7 @@ async function displayAlbums() {
         if (e.href.includes("/songs")) {
             let folder = e.href.split("/").slice(-2)[0]
             // get the metadata of the folder
-            let a = await fetch(`/songs/${folder}/info.json`)
+            let a = await fetch(`songs/${folder}/info.json`)
             let response = await a.json()
             cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
                 <div class="play">
@@ -136,7 +136,7 @@ function updateSongProgress() {
 }
 
 async function main() {
-    songs = await getSongs("/songs/Ajeet")
+    songs = await getSongs("songs/Ajeet")
 
     playMusic(songs[0], true)
 
