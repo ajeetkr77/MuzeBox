@@ -1,3 +1,9 @@
+let currentSong = new Audio();
+let songs;
+let currFolder;
+
+
+
 async function getSongs(folder) {
     currFolder = folder
     let a = await fetch(`https://api.github.com/repos/ajeetkr77/MuzeBox/contents/${folder}`)
